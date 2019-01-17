@@ -1,6 +1,12 @@
 var sitemaps = require('sitemap-stream-parser');
 var Crawler = require("crawler");
 var urls = [];
+
+urls.push('https://brickscout.com/sitemaps/shops/de/0.xml');
+urls.push('https://brickscout.com/sitemaps/shops/en/0.xml');
+urls.push('https://brickscout.com/sitemaps/shops/it/0.xml');
+urls.push('https://brickscout.com/sitemaps/shops/nl/0.xml');
+
 for (i = 146; i >= 0; i--) {
 urls.push('https://brickscout.com/sitemaps/products/de/'+i+'.xml');
 urls.push('https://brickscout.com/sitemaps/products/en/'+i+'.xml');
@@ -9,7 +15,7 @@ urls.push('https://brickscout.com/sitemaps/products/nl/'+i+'.xml');
 }
 all_urls = [];
 var c = new Crawler({
-maxConnections : 3,
+maxConnections : 2,
 //rateLimit: 1000, // `maxConnections` will be forced to 1
 userAgent: 'Googlebot/2.1 (+http://www.googlebot.com/bot.html)',
 // This will be called for each crawled page
@@ -17,10 +23,8 @@ callback : function (error, res, done) {
 if(error){
 console.log(error);
 }else{
-var $ = res.$;
-// $ is Cheerio by default
 //a lean implementation of core jQuery designed specifically for the server
-console.log(res.url);
+console.log(res.options.uri);
 }
 done();
 }
@@ -30,3 +34,4 @@ c.queue(url);
 }, function(err, sitemaps) {
 // start crawler
 });
+console.log("Start crawler");
