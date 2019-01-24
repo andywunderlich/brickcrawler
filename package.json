@@ -1,0 +1,23 @@
+{
+  "name": "brickcrawler",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/andywunderlich/brickcrawler.git"
+  },
+  "author": "Andy Wunderlich",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/andywunderlich/brickcrawler/issues"
+  },
+  "homepage": "https://github.com/andywunderlich/brickcrawler#readme",
+  "dependencies": {
+    "crawler": "^1.2.0",
+    "sitemap-stream-parser": "^1.6.0"
+  }
+}
